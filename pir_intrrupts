@@ -1,0 +1,22 @@
+int interruptPin1 = 2;
+int interruptPin2 = 3;
+int ledPin = 4;
+
+void LED_ON() {
+  digitalWrite(ledPin, HIGH);
+  Serial.write("ON");
+}
+void LED_OFF() {
+  digitalWrite(ledPin, LOW);
+  Serial.write("OFF");
+}
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(5, OUTPUT);
+  attachInterrupt(digitalPinToInterrupt(interruptPin1), LED_ON, RISING);
+  attachInterrupt(digitalPinToInterrupt(interruptPin2), LED_OFF, FALLING);
+}
+
+void loop() {
+}
